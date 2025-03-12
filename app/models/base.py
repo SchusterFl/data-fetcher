@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, DateTime, func
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from typing import AsyncGenerator
 
 from app.config.settings import settings
 
@@ -32,12 +33,12 @@ async def init_db():
         # Hier fügen wir keine Metadaten-Erstellung hinzu, das wird durch Alembic übernommen
         pass
 
-async def get_session() -> AsyncSession:
+async def get_session() -> AsyncGenerator[AsyncSession, None]:
     """
     Erstellt und gibt eine neue Datenbanksitzung zurück.
     
     Returns:
-        AsyncSession: Eine neue Datenbanksitzung
+        AsyncGenerator: Ein asynchroner Generator, der eine neue Datenbanksitzung liefert
     """
     async with async_session() as session:
         try:

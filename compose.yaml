@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  backend:
+    image: tiangolo/uvicorn-gunicorn-fastapi:python3.9  # FastAPI-Image
+    container_name: data-fetch-backend
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app  # Mountet den Code ins Containerverzeichnis
+      - ./data:/data  # Persistente Speicherung der SQLite-Datenbank
+    ports:
+      - "8000:8000"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+volumes:
+  data:  # Persistente Speicherung für SQLite-Datenbank

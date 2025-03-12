@@ -7,7 +7,7 @@ from loguru import logger
 
 from app.config.settings import settings
 from app.models.base import get_session
-from app.models.datasources import DataSource
+from app.models.datasource import DataSource
 from app.scheduler.jobs import fetch_and_process_data, cleanup_old_files
 
 # Globale Scheduler-Instanz
