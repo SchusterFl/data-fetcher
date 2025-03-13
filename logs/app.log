@@ -819,3 +819,31 @@ FROM outputs
 2025-03-13 09:44:59.777 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
 2025-03-13 09:44:59.778 | INFO     | logging:callHandlers:1706 - Finished server process [25480]
 2025-03-13 09:44:59.778 | INFO     | logging:callHandlers:1706 - Finished server process [25480]
+2025-03-13 09:55:30.571 | INFO     | app.utils.logging:setup_logging:67 - Logging wurde eingerichtet
+2025-03-13 09:55:30.578 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:55:30.578 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:55:30.579 | INFO     | logging:callHandlers:1706 - COMMIT
+2025-03-13 09:55:30.579 | INFO     | logging:callHandlers:1706 - COMMIT
+2025-03-13 09:55:30.579 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-03-13 09:55:30.579 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-03-13 11:22:56.484 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 11:22:56.484 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 11:22:56.506 | INFO     | logging:callHandlers:1706 - SELECT outputs.name, outputs.description, outputs.path, outputs.strategy, outputs.retention_days, outputs.active, outputs.id, outputs.created_at, outputs.updated_at 
+FROM outputs
+ LIMIT ? OFFSET ?
+2025-03-13 11:22:56.506 | INFO     | logging:callHandlers:1706 - SELECT outputs.name, outputs.description, outputs.path, outputs.strategy, outputs.retention_days, outputs.active, outputs.id, outputs.created_at, outputs.updated_at 
+FROM outputs
+ LIMIT ? OFFSET ?
+2025-03-13 11:22:56.513 | INFO     | logging:callHandlers:1706 - [generated in 0.00662s] (100, 0)
+2025-03-13 11:22:56.514 | INFO     | logging:callHandlers:1706 - [generated in 0.00662s] (100, 0)
+2025-03-13 11:22:56.519 | INFO     | logging:callHandlers:1706 - 127.0.0.1:52356 - "GET /api/outputs/ HTTP/1.1" 200
+2025-03-13 11:22:56.521 | INFO     | logging:callHandlers:1706 - ROLLBACK
+2025-03-13 11:22:56.521 | INFO     | logging:callHandlers:1706 - ROLLBACK
+2025-03-13 11:23:05.968 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-03-13 11:23:05.968 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-03-13 11:23:06.070 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-03-13 11:23:06.071 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-03-13 11:23:06.072 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-03-13 11:23:06.073 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-03-13 11:23:06.073 | INFO     | logging:callHandlers:1706 - Finished server process [31184]
+2025-03-13 11:23:06.074 | INFO     | logging:callHandlers:1706 - Finished server process [31184]

@@ -93,7 +93,7 @@ class DataSourceService:
             raise HTTPException(status_code=404, detail="Datenquelle nicht gefunden")
         
         # Aktualisierbare Felder
-        update_data = datasource_update.dict(exclude_unset=True)
+        update_data = datasource_update.model_dump(exclude_unset=True)
         
         # URL validieren, falls eine neue angegeben wurde
         if "url" in update_data:
@@ -112,7 +112,7 @@ class DataSourceService:
         await self.session.refresh(db_datasource)
         
         return db_datasource
-    
+
     async def delete(self, datasource_id: int) -> None:
         """
         Löscht eine Datenquelle.
