@@ -1,0 +1,821 @@
+2025-03-13 09:33:02.774 | INFO     | app.utils.logging:setup_logging:67 - Logging wurde eingerichtet
+2025-03-13 09:33:02.782 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:33:02.783 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:33:02.783 | INFO     | logging:callHandlers:1706 - COMMIT
+2025-03-13 09:33:02.783 | INFO     | logging:callHandlers:1706 - COMMIT
+2025-03-13 09:33:02.784 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-03-13 09:33:02.784 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-03-13 09:33:12.505 | INFO     | logging:callHandlers:1706 - 127.0.0.1:53918 - "GET /health HTTP/1.1" 200
+2025-03-13 09:33:34.693 | INFO     | logging:callHandlers:1706 - 127.0.0.1:54010 - "GET /datasources HTTP/1.1" 404
+2025-03-13 09:33:58.951 | INFO     | logging:callHandlers:1706 - 127.0.0.1:54111 - "GET /api/datasources HTTP/1.1" 307
+2025-03-13 09:33:58.987 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:33:58.989 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:33:58.992 | INFO     | logging:callHandlers:1706 - SELECT datasources.name, datasources.url, datasources.description, datasources.start_time, datasources.frequency, datasources.id, datasources.created_at, datasources.updated_at 
+FROM datasources
+ LIMIT ? OFFSET ?
+2025-03-13 09:33:58.993 | INFO     | logging:callHandlers:1706 - SELECT datasources.name, datasources.url, datasources.description, datasources.start_time, datasources.frequency, datasources.id, datasources.created_at, datasources.updated_at 
+FROM datasources
+ LIMIT ? OFFSET ?
+2025-03-13 09:33:58.994 | INFO     | logging:callHandlers:1706 - [generated in 0.00181s] (100, 0)
+2025-03-13 09:33:58.994 | INFO     | logging:callHandlers:1706 - [generated in 0.00181s] (100, 0)
+2025-03-13 09:33:58.994 | INFO     | logging:callHandlers:1706 - 127.0.0.1:54111 - "GET /api/datasources/ HTTP/1.1" 200
+2025-03-13 09:33:58.994 | INFO     | logging:callHandlers:1706 - ROLLBACK
+2025-03-13 09:33:58.994 | INFO     | logging:callHandlers:1706 - ROLLBACK
+2025-03-13 09:34:12.713 | INFO     | logging:callHandlers:1706 - 127.0.0.1:54168 - "GET /api/handlers/ HTTP/1.1" 500
+2025-03-13 09:34:12.713 | ERROR    | logging:callHandlers:1706 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "C:\Program Files\Python311\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 448
+               │     └ 3
+               └ <function _main at 0x00000293726463E0>
+  File "C:\Program Files\Python311\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 448
+           │    └ <function BaseProcess._bootstrap at 0x000002937255CEA0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000002937255C400>
+    └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x000002937323AB10>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+    │    └ <function subprocess_started at 0x000002937327FF60>
+    └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=672, family=2, type=1, proto=6, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x00000293732C56D0>>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=672, family=2, type=1, proto=6, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x000002937327F1A0>
+           │       │   └ <uvicorn.server.Server object at 0x00000293732C56D0>
+           │       └ <function run at 0x0000029372AD5440>
+           └ <module 'asyncio' from 'C:\\Program Files\\Python311\\Lib\\asyncio\\__init__.py'>
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x00000293732C3120>
+           │      └ <function Runner.run at 0x0000029372B22520>
+           └ <asyncio.runners.Runner object at 0x00000293732C4C10>
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at C:\Program Files\Python311\Lib\site-packages\uvicorn\server.py:81...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000029372B20180>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000293732C4C10>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 641, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000029372B200E0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 608, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000029372B21EE0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 1936, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000029372AB6E80>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Program Files\Python311\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "C:\Program Files\Python311\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x00000293732CA850>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557A90>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x00000293762D5750>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x00000293732CA850>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557A90>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557A90>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x00000293774E6490>
+          └ <fastapi.applications.FastAPI object at 0x00000293762D5750>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x00000293732BCCC0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.cors.CORSMiddleware object at 0x00000293774E7AD0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x00000293774E6490>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x00000293732BCCC0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x00000293774E5290>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x00000293774E7AD0>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000293774DFD80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x00000293774E7D10>
+          └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x00000293774E5290>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000293774DFD80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x0000029376328B50>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x00000293774E7D10>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000293774DFD80>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function Route.handle at 0x000002937535ACA0>
+          └ APIRoute(path='/api/handlers/', name='read_handlers', methods=['GET'])
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000293774DFD80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x00000293774DCC20>
+          └ APIRoute(path='/api/handlers/', name='read_handlers', methods=['GET'])
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x0000029378564290>
+                     └ <function get_request_handler.<locals>.app at 0x00000293774DCCC0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\routing.py", line 264, in app
+    solved_result = await solve_dependencies(
+                          └ <function solve_dependencies at 0x00000293752BF2E0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\dependencies\utils.py", line 570, in solve_dependencies
+    solved_result = await solve_dependencies(
+                          └ <function solve_dependencies at 0x00000293752BF2E0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\dependencies\utils.py", line 601, in solve_dependencies
+    solved = await run_in_threadpool(call, **sub_values)
+                   │                 │       └ {'timeout': 30}
+                   │                 └ <class 'app.services.sandbox.SandboxService'>
+                   └ <function run_in_threadpool at 0x00000293736B4180>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+                 │     │         │        │      └ ()
+                 │     │         │        └ functools.partial(<class 'app.services.sandbox.SandboxService'>, timeout=30)
+                 │     │         └ <function run_sync at 0x00000293736B5F80>
+                 │     └ <module 'anyio.to_thread' from 'C:\\Program Files\\Python311\\Lib\\site-packages\\anyio\\to_thread.py'>
+                 └ <module 'anyio' from 'C:\\Program Files\\Python311\\Lib\\site-packages\\anyio\\__init__.py'>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+                 └ <function get_asynclib at 0x00000293736B58A0>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+                 └ <Future finished exception=NameError("name 'settings' is not defined")>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             │       │   │      └ ()
+             │       │   └ functools.partial(<class 'app.services.sandbox.SandboxService'>, timeout=30)
+             │       └ <method 'run' of '_contextvars.Context' objects>
+             └ <_contextvars.Context object at 0x0000029377540300>
+
+  File "C:\Users\schusterfl\OneDrive - Mediencloud\pm_projects\data-fetch-process\app\services\sandbox.py", line 35, in __init__
+    self.temp_dir = settings.TEMP_DIR or tempfile.gettempdir()
+    │                                    │        └ <function gettempdir at 0x0000029372FF7C40>
+    │                                    └ <module 'tempfile' from 'C:\\Program Files\\Python311\\Lib\\tempfile.py'>
+    └ <app.services.sandbox.SandboxService object at 0x0000029377535CD0>
+
+NameError: name 'settings' is not defined
+2025-03-13 09:34:12.765 | ERROR    | logging:callHandlers:1706 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "C:\Program Files\Python311\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 448
+               │     └ 3
+               └ <function _main at 0x00000293726463E0>
+  File "C:\Program Files\Python311\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 448
+           │    └ <function BaseProcess._bootstrap at 0x000002937255CEA0>
+           └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x000002937255C400>
+    └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x000002937323AB10>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+    │    └ <function subprocess_started at 0x000002937327FF60>
+    └ <SpawnProcess name='SpawnProcess-1' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=672, family=2, type=1, proto=6, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x00000293732C56D0>>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=672, family=2, type=1, proto=6, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x000002937327F1A0>
+           │       │   └ <uvicorn.server.Server object at 0x00000293732C56D0>
+           │       └ <function run at 0x0000029372AD5440>
+           └ <module 'asyncio' from 'C:\\Program Files\\Python311\\Lib\\asyncio\\__init__.py'>
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x00000293732C3120>
+           │      └ <function Runner.run at 0x0000029372B22520>
+           └ <asyncio.runners.Runner object at 0x00000293732C4C10>
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at C:\Program Files\Python311\Lib\site-packages\uvicorn\server.py:81...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x0000029372B20180>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000293732C4C10>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 641, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x0000029372B200E0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 608, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000029372B21EE0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 1936, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000029372AB6E80>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Program Files\Python311\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "C:\Program Files\Python311\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x00000293732CA850>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557A90>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x00000293762D5750>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x00000293732CA850>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557A90>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557A90>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x00000293774E6490>
+          └ <fastapi.applications.FastAPI object at 0x00000293762D5750>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x00000293732BCCC0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.cors.CORSMiddleware object at 0x00000293774E7AD0>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x00000293774E6490>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x00000293732BCCC0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x00000293774E5290>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x00000293774E7AD0>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000293774DFD80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x00000293774E7D10>
+          └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x00000293774E5290>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000293774DFD80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x0000029376328B50>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x00000293774E7D10>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000293774DFD80>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function Route.handle at 0x000002937535ACA0>
+          └ APIRoute(path='/api/handlers/', name='read_handlers', methods=['GET'])
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000293774DFD80>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x0000029378557...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x00000293774DCC20>
+          └ APIRoute(path='/api/handlers/', name='read_handlers', methods=['GET'])
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x0000029378564290>
+                     └ <function get_request_handler.<locals>.app at 0x00000293774DCCC0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\routing.py", line 264, in app
+    solved_result = await solve_dependencies(
+                          └ <function solve_dependencies at 0x00000293752BF2E0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\dependencies\utils.py", line 570, in solve_dependencies
+    solved_result = await solve_dependencies(
+                          └ <function solve_dependencies at 0x00000293752BF2E0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\dependencies\utils.py", line 601, in solve_dependencies
+    solved = await run_in_threadpool(call, **sub_values)
+                   │                 │       └ {'timeout': 30}
+                   │                 └ <class 'app.services.sandbox.SandboxService'>
+                   └ <function run_in_threadpool at 0x00000293736B4180>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+                 │     │         │        │      └ ()
+                 │     │         │        └ functools.partial(<class 'app.services.sandbox.SandboxService'>, timeout=30)
+                 │     │         └ <function run_sync at 0x00000293736B5F80>
+                 │     └ <module 'anyio.to_thread' from 'C:\\Program Files\\Python311\\Lib\\site-packages\\anyio\\to_thread.py'>
+                 └ <module 'anyio' from 'C:\\Program Files\\Python311\\Lib\\site-packages\\anyio\\__init__.py'>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+                 └ <function get_asynclib at 0x00000293736B58A0>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+                 └ <Future finished exception=NameError("name 'settings' is not defined")>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             │       │   │      └ ()
+             │       │   └ functools.partial(<class 'app.services.sandbox.SandboxService'>, timeout=30)
+             │       └ <method 'run' of '_contextvars.Context' objects>
+             └ <_contextvars.Context object at 0x0000029377540300>
+
+  File "C:\Users\schusterfl\OneDrive - Mediencloud\pm_projects\data-fetch-process\app\services\sandbox.py", line 35, in __init__
+    self.temp_dir = settings.TEMP_DIR or tempfile.gettempdir()
+    │                                    │        └ <function gettempdir at 0x0000029372FF7C40>
+    │                                    └ <module 'tempfile' from 'C:\\Program Files\\Python311\\Lib\\tempfile.py'>
+    └ <app.services.sandbox.SandboxService object at 0x0000029377535CD0>
+
+NameError: name 'settings' is not defined
+2025-03-13 09:35:10.992 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-03-13 09:35:10.993 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-03-13 09:35:11.095 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-03-13 09:35:11.095 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-03-13 09:35:11.095 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-03-13 09:35:11.095 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-03-13 09:35:11.095 | INFO     | logging:callHandlers:1706 - Finished server process [29348]
+2025-03-13 09:35:11.098 | INFO     | logging:callHandlers:1706 - Finished server process [29348]
+2025-03-13 09:35:12.757 | INFO     | app.utils.logging:setup_logging:67 - Logging wurde eingerichtet
+2025-03-13 09:35:12.757 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:35:12.757 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:35:12.771 | INFO     | logging:callHandlers:1706 - COMMIT
+2025-03-13 09:35:12.772 | INFO     | logging:callHandlers:1706 - COMMIT
+2025-03-13 09:35:12.774 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-03-13 09:35:12.775 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-03-13 09:35:15.840 | INFO     | logging:callHandlers:1706 - 127.0.0.1:54441 - "GET /api/handlers/ HTTP/1.1" 500
+2025-03-13 09:35:15.840 | ERROR    | logging:callHandlers:1706 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "C:\Program Files\Python311\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 452
+               │     └ 3
+               └ <function _main at 0x00000209EFD463E0>
+  File "C:\Program Files\Python311\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 452
+           │    └ <function BaseProcess._bootstrap at 0x00000209EFC5CEA0>
+           └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x00000209EFC5C400>
+    └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x00000209F090AC90>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+    │    └ <function subprocess_started at 0x00000209F094FF60>
+    └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=472, family=2, type=1, proto=6, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x00000209F0995A90>>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=472, family=2, type=1, proto=6, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x00000209F094F1A0>
+           │       │   └ <uvicorn.server.Server object at 0x00000209F0995A90>
+           │       └ <function run at 0x00000209F01A5440>
+           └ <module 'asyncio' from 'C:\\Program Files\\Python311\\Lib\\asyncio\\__init__.py'>
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x00000209F0993120>
+           │      └ <function Runner.run at 0x00000209F01F2520>
+           └ <asyncio.runners.Runner object at 0x00000209F09950D0>
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at C:\Program Files\Python311\Lib\site-packages\uvicorn\server.py:81...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000209F01F0180>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000209F09950D0>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 641, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x00000209F01F00E0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 608, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000209F01F1EE0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 1936, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000209F0186E80>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Program Files\Python311\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "C:\Program Files\Python311\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x00000209F0999490>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C061D0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x00000209F0A43550>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x00000209F0999490>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C061D0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C061D0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x00000209F0A2D810>
+          └ <fastapi.applications.FastAPI object at 0x00000209F0A43550>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x00000209F4BAF6A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.cors.CORSMiddleware object at 0x00000209F0A2E190>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x00000209F0A2D810>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x00000209F4BAF6A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x00000209F4BB4110>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x00000209F0A2E190>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000209F4BAF740>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x00000209F4BB4510>
+          └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x00000209F4BB4110>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000209F4BAF740>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x00000209F39F8C10>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x00000209F4BB4510>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000209F4BAF740>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function Route.handle at 0x00000209F2A2ACA0>
+          └ APIRoute(path='/api/handlers/', name='read_handlers', methods=['GET'])
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000209F4BAF740>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x00000209F4BACC20>
+          └ APIRoute(path='/api/handlers/', name='read_handlers', methods=['GET'])
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x00000209F4C06590>
+                     └ <function get_request_handler.<locals>.app at 0x00000209F4BACCC0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\routing.py", line 264, in app
+    solved_result = await solve_dependencies(
+                          └ <function solve_dependencies at 0x00000209F298F2E0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\dependencies\utils.py", line 570, in solve_dependencies
+    solved_result = await solve_dependencies(
+                          └ <function solve_dependencies at 0x00000209F298F2E0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\dependencies\utils.py", line 601, in solve_dependencies
+    solved = await run_in_threadpool(call, **sub_values)
+                   │                 │       └ {'timeout': 30}
+                   │                 └ <class 'app.services.sandbox.SandboxService'>
+                   └ <function run_in_threadpool at 0x00000209F0D84180>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+                 │     │         │        │      └ ()
+                 │     │         │        └ functools.partial(<class 'app.services.sandbox.SandboxService'>, timeout=30)
+                 │     │         └ <function run_sync at 0x00000209F0D85F80>
+                 │     └ <module 'anyio.to_thread' from 'C:\\Program Files\\Python311\\Lib\\site-packages\\anyio\\to_thread.py'>
+                 └ <module 'anyio' from 'C:\\Program Files\\Python311\\Lib\\site-packages\\anyio\\__init__.py'>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+                 └ <function get_asynclib at 0x00000209F0D858A0>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+                 └ <Future finished exception=AttributeError("'Settings' object has no attribute 'TEMP_DIR'")>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             │       │   │      └ ()
+             │       │   └ functools.partial(<class 'app.services.sandbox.SandboxService'>, timeout=30)
+             │       └ <method 'run' of '_contextvars.Context' objects>
+             └ <_contextvars.Context object at 0x00000209F4C19B40>
+
+  File "C:\Users\schusterfl\OneDrive - Mediencloud\pm_projects\data-fetch-process\app\services\sandbox.py", line 35, in __init__
+    self.temp_dir = settings.TEMP_DIR or tempfile.gettempdir()
+    │               │                    │        └ <function gettempdir at 0x00000209F06C7C40>
+    │               │                    └ <module 'tempfile' from 'C:\\Program Files\\Python311\\Lib\\tempfile.py'>
+    │               └ Settings(BASE_DIR=WindowsPath('C:/Users/schusterfl/OneDrive - Mediencloud/pm_projects/data-fetch-process'), API_V1_STR='/v1',...
+    └ <app.services.sandbox.SandboxService object at 0x00000209F4C19CD0>
+
+  File "C:\Program Files\Python311\Lib\site-packages\pydantic\main.py", line 761, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+
+AttributeError: 'Settings' object has no attribute 'TEMP_DIR'
+2025-03-13 09:35:15.881 | ERROR    | logging:callHandlers:1706 - Exception in ASGI application
+
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "C:\Program Files\Python311\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 452
+               │     └ 3
+               └ <function _main at 0x00000209EFD463E0>
+  File "C:\Program Files\Python311\Lib\multiprocessing\spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 452
+           │    └ <function BaseProcess._bootstrap at 0x00000209EFC5CEA0>
+           └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x00000209EFC5C400>
+    └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x00000209F090AC90>, 'target': <bound method Server.run of <uvicorn.server.Server...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+    │    └ <function subprocess_started at 0x00000209F094FF60>
+    └ <SpawnProcess name='SpawnProcess-2' parent=10168 started>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=472, family=2, type=1, proto=6, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x00000209F0995A90>>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           │       │   │    │             └ [<socket.socket fd=472, family=2, type=1, proto=6, laddr=('0.0.0.0', 8000)>]
+           │       │   │    └ <function Server.serve at 0x00000209F094F1A0>
+           │       │   └ <uvicorn.server.Server object at 0x00000209F0995A90>
+           │       └ <function run at 0x00000209F01A5440>
+           └ <module 'asyncio' from 'C:\\Program Files\\Python311\\Lib\\asyncio\\__init__.py'>
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x00000209F0993120>
+           │      └ <function Runner.run at 0x00000209F01F2520>
+           └ <asyncio.runners.Runner object at 0x00000209F09950D0>
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at C:\Program Files\Python311\Lib\site-packages\uvicorn\server.py:81...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000209F01F0180>
+           │    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000209F09950D0>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 641, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x00000209F01F00E0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 608, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000209F01F1EE0>
+    └ <_WindowsSelectorEventLoop running=True closed=False debug=False>
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 1936, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000209F0186E80>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+  File "C:\Program Files\Python311\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup(<Future finished result=None>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup(<Future finished result=None>)>
+> File "C:\Program Files\Python311\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+                   └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x00000209F0999490>
+  File "C:\Program Files\Python311\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+                 │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C061D0>>
+                 │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+                 │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+                 │    └ <fastapi.applications.FastAPI object at 0x00000209F0A43550>
+                 └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0x00000209F0999490>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C061D0>>
+                           │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+                           └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C061D0>>
+          │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x00000209F0A2D810>
+          └ <fastapi.applications.FastAPI object at 0x00000209F0A43550>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x00000209F4BAF6A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.cors.CORSMiddleware object at 0x00000209F0A2E190>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x00000209F0A2D810>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0x00000209F4BAF6A0>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x00000209F4BB4110>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x00000209F0A2E190>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\exceptions.py", line 79, in __call__
+    raise exc
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000209F4BAF740>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x00000209F4BB4510>
+          └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x00000209F4BB4110>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000209F4BAF740>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <fastapi.routing.APIRouter object at 0x00000209F39F8C10>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x00000209F4BB4510>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000209F4BAF740>
+          │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │     └ <function Route.handle at 0x00000209F2A2ACA0>
+          └ APIRoute(path='/api/handlers/', name='read_handlers', methods=['GET'])
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function ExceptionMiddleware.__call__.<locals>.sender at 0x00000209F4BAF740>
+          │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0x00000209F4C06...
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('127.0.0.1', 8000), 'cl...
+          │    └ <function request_response.<locals>.app at 0x00000209F4BACC20>
+          └ APIRoute(path='/api/handlers/', name='read_handlers', methods=['GET'])
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+                     │    └ <starlette.requests.Request object at 0x00000209F4C06590>
+                     └ <function get_request_handler.<locals>.app at 0x00000209F4BACCC0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\routing.py", line 264, in app
+    solved_result = await solve_dependencies(
+                          └ <function solve_dependencies at 0x00000209F298F2E0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\dependencies\utils.py", line 570, in solve_dependencies
+    solved_result = await solve_dependencies(
+                          └ <function solve_dependencies at 0x00000209F298F2E0>
+  File "C:\Program Files\Python311\Lib\site-packages\fastapi\dependencies\utils.py", line 601, in solve_dependencies
+    solved = await run_in_threadpool(call, **sub_values)
+                   │                 │       └ {'timeout': 30}
+                   │                 └ <class 'app.services.sandbox.SandboxService'>
+                   └ <function run_in_threadpool at 0x00000209F0D84180>
+  File "C:\Program Files\Python311\Lib\site-packages\starlette\concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+                 │     │         │        │      └ ()
+                 │     │         │        └ functools.partial(<class 'app.services.sandbox.SandboxService'>, timeout=30)
+                 │     │         └ <function run_sync at 0x00000209F0D85F80>
+                 │     └ <module 'anyio.to_thread' from 'C:\\Program Files\\Python311\\Lib\\site-packages\\anyio\\to_thread.py'>
+                 └ <module 'anyio' from 'C:\\Program Files\\Python311\\Lib\\site-packages\\anyio\\__init__.py'>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+                 └ <function get_asynclib at 0x00000209F0D858A0>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+                 └ <Future finished exception=AttributeError("'Settings' object has no attribute 'TEMP_DIR'")>
+  File "C:\Program Files\Python311\Lib\site-packages\anyio\_backends\_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             │       │   │      └ ()
+             │       │   └ functools.partial(<class 'app.services.sandbox.SandboxService'>, timeout=30)
+             │       └ <method 'run' of '_contextvars.Context' objects>
+             └ <_contextvars.Context object at 0x00000209F4C19B40>
+
+  File "C:\Users\schusterfl\OneDrive - Mediencloud\pm_projects\data-fetch-process\app\services\sandbox.py", line 35, in __init__
+    self.temp_dir = settings.TEMP_DIR or tempfile.gettempdir()
+    │               │                    │        └ <function gettempdir at 0x00000209F06C7C40>
+    │               │                    └ <module 'tempfile' from 'C:\\Program Files\\Python311\\Lib\\tempfile.py'>
+    │               └ Settings(BASE_DIR=WindowsPath('C:/Users/schusterfl/OneDrive - Mediencloud/pm_projects/data-fetch-process'), API_V1_STR='/v1',...
+    └ <app.services.sandbox.SandboxService object at 0x00000209F4C19CD0>
+
+  File "C:\Program Files\Python311\Lib\site-packages\pydantic\main.py", line 761, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+
+AttributeError: 'Settings' object has no attribute 'TEMP_DIR'
+2025-03-13 09:36:17.196 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-03-13 09:36:17.197 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-03-13 09:36:17.300 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-03-13 09:36:17.302 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-03-13 09:36:17.304 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-03-13 09:36:17.305 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-03-13 09:36:17.307 | INFO     | logging:callHandlers:1706 - Finished server process [34268]
+2025-03-13 09:36:17.308 | INFO     | logging:callHandlers:1706 - Finished server process [34268]
+2025-03-13 09:37:01.850 | INFO     | app.utils.logging:setup_logging:67 - Logging wurde eingerichtet
+2025-03-13 09:37:01.867 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:37:01.867 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:37:01.872 | INFO     | logging:callHandlers:1706 - COMMIT
+2025-03-13 09:37:01.873 | INFO     | logging:callHandlers:1706 - COMMIT
+2025-03-13 09:37:01.875 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-03-13 09:37:01.876 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-03-13 09:37:06.183 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:37:06.183 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:37:06.183 | INFO     | logging:callHandlers:1706 - SELECT handlers.name, handlers.description, handlers.script, handlers.version, handlers.id, handlers.created_at, handlers.updated_at 
+FROM handlers
+ LIMIT ? OFFSET ?
+2025-03-13 09:37:06.183 | INFO     | logging:callHandlers:1706 - SELECT handlers.name, handlers.description, handlers.script, handlers.version, handlers.id, handlers.created_at, handlers.updated_at 
+FROM handlers
+ LIMIT ? OFFSET ?
+2025-03-13 09:37:06.183 | INFO     | logging:callHandlers:1706 - [generated in 0.00184s] (100, 0)
+2025-03-13 09:37:06.193 | INFO     | logging:callHandlers:1706 - [generated in 0.00184s] (100, 0)
+2025-03-13 09:37:06.195 | INFO     | logging:callHandlers:1706 - 127.0.0.1:55014 - "GET /api/handlers/ HTTP/1.1" 200
+2025-03-13 09:37:06.196 | INFO     | logging:callHandlers:1706 - ROLLBACK
+2025-03-13 09:37:06.196 | INFO     | logging:callHandlers:1706 - ROLLBACK
+2025-03-13 09:37:14.747 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:37:14.762 | INFO     | logging:callHandlers:1706 - BEGIN (implicit)
+2025-03-13 09:37:14.762 | INFO     | logging:callHandlers:1706 - SELECT outputs.name, outputs.description, outputs.path, outputs.strategy, outputs.retention_days, outputs.active, outputs.id, outputs.created_at, outputs.updated_at 
+FROM outputs
+ LIMIT ? OFFSET ?
+2025-03-13 09:37:14.768 | INFO     | logging:callHandlers:1706 - SELECT outputs.name, outputs.description, outputs.path, outputs.strategy, outputs.retention_days, outputs.active, outputs.id, outputs.created_at, outputs.updated_at 
+FROM outputs
+ LIMIT ? OFFSET ?
+2025-03-13 09:37:14.770 | INFO     | logging:callHandlers:1706 - [generated in 0.00330s] (100, 0)
+2025-03-13 09:37:14.770 | INFO     | logging:callHandlers:1706 - [generated in 0.00330s] (100, 0)
+2025-03-13 09:37:14.772 | INFO     | logging:callHandlers:1706 - 127.0.0.1:55050 - "GET /api/outputs/ HTTP/1.1" 200
+2025-03-13 09:37:14.773 | INFO     | logging:callHandlers:1706 - ROLLBACK
+2025-03-13 09:37:14.774 | INFO     | logging:callHandlers:1706 - ROLLBACK
+2025-03-13 09:44:59.660 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-03-13 09:44:59.660 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-03-13 09:44:59.774 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-03-13 09:44:59.775 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-03-13 09:44:59.776 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-03-13 09:44:59.777 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-03-13 09:44:59.778 | INFO     | logging:callHandlers:1706 - Finished server process [25480]
+2025-03-13 09:44:59.778 | INFO     | logging:callHandlers:1706 - Finished server process [25480]

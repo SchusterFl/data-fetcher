@@ -12,7 +12,7 @@ import subprocess
 import logging
 from typing import Dict, Any, Optional, Tuple
 
-# from app.config.settings import get_settings
+from app.config.settings import settings
 
 logger = logging.getLogger(__name__)
 # settings = get_settings()

@@ -32,6 +32,7 @@ class Settings(BaseSettings):
     
     # Sandbox-Konfiguration
     SANDBOX_TIMEOUT: int = 30  # Sekunden
+    TEMP_DIR: Path = BASE_DIR / "tmp"
     
     class Config:
         env_file = ".env"
