@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { useApi } from '../composables/useApi'
 
-export const useDatasourceStore = defineStore('datasource', {
+export const useDataSourceStore = defineStore('datasource', {
   state: () => ({
     datasources: [],
     loading: false,
